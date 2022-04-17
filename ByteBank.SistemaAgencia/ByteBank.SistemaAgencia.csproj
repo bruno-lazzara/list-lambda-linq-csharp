@@ -52,6 +52,8 @@
     <Compile Include="ListaDeContaCorrente.cs" />
     <Compile Include="ListaDeObject.cs" />
     <Compile Include="Lista.cs" />
+    <Compile Include="Extensoes\ListExtensoes.cs" />
+    <Compile Include="Comparadores\ComparadorContaCorrentePorAgencia.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -62,6 +64,10 @@
       <Project>{e77ef4f8-5afd-4c5f-a98d-7ea951dfa35a}</Project>
       <Name>ByteBank.Modelos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensoes\" />
+    <Folder Include="Comparadores\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

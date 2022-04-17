@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
+using ByteBank.SistemaAgencia.Comparadores;
+using ByteBank.SistemaAgencia.Extensoes;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -13,24 +15,134 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            var contas = new List<ContaCorrente>()
+            {
+                new ContaCorrente(341, 87480),
+                new ContaCorrente(342, 56734),
+                new ContaCorrente(342, 00001),
+                new ContaCorrente(342, 99999),
+                new ContaCorrente(340, 29867),
+                new ContaCorrente(290, 67453)
+            };
+
+            // contas.Sort(); ~~> Chama a implementação dada em IComparable
+
+            contas.Sort(new ComparadorContaCorrentePorAgencia());
+
+            foreach (var conta in contas)
+            {
+                Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");
+            }
+            
+
+
+
+
+
+            Console.ReadLine();
+        }
+
+        static void TestaSort()
+        {
+
+            //INFERÊNCIA DE TIPO DE VARIÁVEL:
+
+            var conta = new ContaCorrente(345, 673452);
+            var gerenciador = new GerenciadorBonificacao();
+            var gerenciadores = new List<GerenciadorBonificacao>();
+
+            conta.Depositar(3000);
+
+            //var idade; - não compila, precisamos atribuir um valor à variável
+            //para que o compilador entenda que "var" é do tipo int.
+            var idade = 14;
+
+            //idade = "catorze"; - não compila, pois a variável já foi declarada
+            //como sendo do tipo int ao ser atribuído o valor 14 a ela.
+
+            //var nome;
+            var nome = "Bruno";
+
+
+            var resultado = SomarVarios(1, 5, 9);
+
+
+
+
+
+
+
+
+
+
+
+
+            var idades = new List<int>();
+
+            //A lista 'idades' foi criada como sendo do tipo int.
+            //Portanto, não poderá receber parâmetros de outros tipos.
+            //idades.Adicionar("texto qualquer"); - NÃO COMPILA
+
+            idades.Add(1);
+            idades.Add(5);
+            idades.Add(14);
+            idades.Add(25);
+            idades.Add(38);
+            idades.Add(61);
+
+            //idades.AddRange(new int[]{16, 18, 22, 40});
+            //ListExtensoes.AdicionarVarios(idades, 16, 18, 22, 40);
+            idades.AdicionarVarios(16, 18, 22, 40);
+
+            //idades.Remove(5);
+
+            idades.AdicionarVarios(99, -1);
+
+            idades.Sort();
+
+            for (int i = 0; i < idades.Count; i++)
+            {
+                Console.WriteLine(idades[i]);
+            }
+
+
+
+
+            var nomes = new List<string>()
+            {
+                "Victor",
+                "Bruno",
+                "Marcelle",
+                "Guilherme",
+                "Ana"
+            };
+
+            nomes.Sort();
+
+            foreach (var item in nomes)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        static void TesteLista()
+        {
             Lista<int> idades = new Lista<int>();
 
             //A lista 'idades' foi criada como sendo do tipo int.
             //Portanto, não poderá receber parâmetros de outros tipos.
             //idades.Adicionar("texto qualquer"); - NÃO COMPILA
 
-            idades.Adicionar(5);
+            idades.Adicionar(10);
             idades.AdicionarVarios(1, 5, 78);
+
+            idades.Remover(5);
 
             for (int i = 0; i < idades.Tamanho; i++)
             {
                 int idadeAtual = idades[i];
+                Console.WriteLine(idadeAtual);
             }
-
-
-
-
-            Console.ReadLine();
         }
 
         static void TesteListaDeObject()
@@ -42,6 +154,8 @@ namespace ByteBank.SistemaAgencia
             listaDeIdades.Adicionar(4);
             listaDeIdades.AdicionarVarios(16, 23, 60);
 
+            listaDeIdades.Remover(5);
+
             for (int i = 0; i < listaDeIdades.Tamanho; i++)
             {
                 int idade = (int)listaDeIdades[i];
@@ -52,12 +166,8 @@ namespace ByteBank.SistemaAgencia
 
 
 
-            Console.WriteLine(SomarVarios(1, 2, 3, 4, 5, 6, 7, 8, 9));
-            Console.WriteLine(SomarVarios(1, 2, 3));
-
-
-
-            Console.ReadLine();
+            //Console.WriteLine(SomarVarios(1, 2, 3, 4, 5, 6, 7, 8, 9));
+            //Console.WriteLine(SomarVarios(1, 2, 3));
         }
 
         static void TesteListaDeContaCorrente()
@@ -99,11 +209,6 @@ namespace ByteBank.SistemaAgencia
 
             //Console.WriteLine("Após remover o item");
             //lista.EscreverListaNaTela();
-
-
-
-
-            Console.ReadLine();
         }
 
         static void TestaArrayDeContaCorrente()
@@ -121,9 +226,6 @@ namespace ByteBank.SistemaAgencia
             {
                 Console.WriteLine($"Conta {i} {contas[i].Numero}");
             }
-
-
-            Console.ReadLine();
         }
 
         static void TestaArrayIndice()
@@ -154,11 +256,6 @@ namespace ByteBank.SistemaAgencia
 
             int media = acumulador / idades.Length;
             Console.WriteLine($"Média de idades = {media}");
-
-
-
-
-            Console.ReadLine();
         }
 
         //Outro exemplo do uso de params

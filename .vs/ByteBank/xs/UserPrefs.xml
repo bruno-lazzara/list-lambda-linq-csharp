@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{1EB3CD28-8E8F-465F-9E15-538C5118F7B7}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ByteBank.SistemaAgencia/Comparadores/ComparadorContaCorrentePorAgencia.cs">
+    <Files>
+      <File FileName="ByteBank.SistemaAgencia/Program.cs" Line="35" Column="14" />
+      <File FileName="ByteBank.Modelos/ContaCorrente.cs" Line="155" Column="1" />
+      <File FileName="ByteBank.SistemaAgencia/Comparadores/ComparadorContaCorrentePorAgencia.cs" Line="16" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ByteBank" expanded="True">
+            <Node name="ByteBank.SistemaAgencia" expanded="True">
+              <Node name="Comparadores" expanded="True">
+                <Node name="ComparadorContaCorrentePorAgencia.cs" selected="True" />
+              </Node>
+              <Node name="Extensoes" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.ByteBank.SistemaAgencia PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
